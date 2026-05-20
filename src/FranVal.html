@@ -1,10 +1,633 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FRANVAL Construction</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Montserrat',sans-serif;
+        }
+
+        body{
+            background:#0d0d0d;
+            color:white;
+            line-height:1.6;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        header{
+            background:linear-gradient(135deg,#081a3a,#0d2d68,#081a3a);
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            border-bottom:3px solid #d4af37;
+            position:sticky;
+            top:0;
+            z-index:999;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:20px;
+        }
+
+        .logo img{
+            width:90px;
+            border-radius:15px;
+            object-fit:cover;
+            box-shadow:0 0 20px rgba(212,175,55,0.4);
+        }
+
+        .logo-text h1{
+            font-size:2.3rem;
+            color:#d4af37;
+            letter-spacing:3px;
+        }
+
+        .logo-text p{
+            color:#ddd;
+            font-size:0.95rem;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            transition:0.3s;
+            font-weight:500;
+        }
+
+        nav a:hover{
+            color:#d4af37;
+        }
+
+        .hero{
+            min-height:100vh;
+            background:
+                    linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.85)),
+                    url('1000201888.png') center/cover;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:40px 20px;
+        }
+
+        .hero-content{
+            max-width:950px;
+        }
+
+        .hero-logo{
+            width:300px;
+            max-width:90%;
+            margin-bottom:35px;
+            filter:drop-shadow(0px 0px 18px rgba(212,175,55,0.5));
+        }
+
+        .hero h2{
+            font-size:3rem;
+            margin-bottom:20px;
+            color:#d4af37;
+        }
+
+        .hero p{
+            font-size:1.2rem;
+            margin-bottom:35px;
+            color:#eee;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:15px 35px;
+            margin:10px;
+            background:#d4af37;
+            color:black;
+            text-decoration:none;
+            border-radius:40px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            transform:scale(1.05);
+            background:white;
+        }
+
+        section{
+            padding:80px 8%;
+        }
+
+        .title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .title h2{
+            color:#d4af37;
+            font-size:2.5rem;
+            margin-bottom:15px;
+        }
+
+        .services{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:#161616;
+            padding:30px;
+            border-radius:20px;
+            border:1px solid #222;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            border-color:#d4af37;
+            box-shadow:0 0 20px rgba(212,175,55,0.2);
+        }
+
+        .card h3{
+            color:#d4af37;
+            margin-bottom:15px;
+        }
+
+        .about{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:40px;
+            align-items:center;
+        }
+
+        .about img{
+            width:100%;
+            border-radius:20px;
+            border:2px solid #d4af37;
+            box-shadow:0 0 25px rgba(212,175,55,0.2);
+        }
+
+        .mission-box{
+            background:#161616;
+            padding:30px;
+            border-radius:20px;
+            margin-bottom:20px;
+        }
+
+        .mission-box h3{
+            color:#d4af37;
+            margin-bottom:15px;
+        }
+
+        .gallery{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .gallery-item{
+            background:#161616;
+            border-radius:20px;
+            overflow:hidden;
+            transition:0.3s;
+        }
+
+        .gallery-item:hover{
+            transform:translateY(-5px);
+        }
+
+        .gallery-item img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .gallery-item p{
+            padding:15px;
+        }
+
+        .reviews{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .review{
+            background:#161616;
+            padding:25px;
+            border-radius:20px;
+            border-left:5px solid #d4af37;
+        }
+
+        .stars{
+            color:#d4af37;
+            margin-bottom:10px;
+            font-size:1.2rem;
+        }
+
+        .contact{
+            background:linear-gradient(135deg,#081a3a,#0d2d68);
+            border-radius:25px;
+            padding:60px 40px;
+            text-align:center;
+            box-shadow:0 0 30px rgba(0,0,0,0.4);
+        }
+
+        .contact h2{
+            color:#d4af37;
+            margin-bottom:25px;
+            font-size:2.4rem;
+        }
+
+        .contact p{
+            margin:12px 0;
+            font-size:1.15rem;
+        }
+
+        .contact-info{
+            margin-top:30px;
+            background:#111;
+            border-radius:20px;
+            padding:25px;
+            border:1px solid rgba(212,175,55,0.3);
+        }
+
+        .contact-info h3{
+            color:#d4af37;
+            margin-bottom:20px;
+        }
+
+        .contact-info a{
+            color:white;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        .contact-info a:hover{
+            color:#d4af37;
+        }
+
+        footer{
+            text-align:center;
+            padding:25px;
+            background:#050505;
+            color:#aaa;
+            border-top:1px solid #222;
+        }
+
+        .floating-buttons{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+            z-index:1000;
+        }
+
+        .floating-buttons a{
+            width:65px;
+            height:65px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-size:1.6rem;
+            text-decoration:none;
+            box-shadow:0 5px 15px rgba(0,0,0,0.4);
+            font-weight:bold;
+        }
+
+        .whatsapp{
+            background:#25D366;
+        }
+
+        .mail{
+            background:#d4af37;
+            color:black !important;
+        }
+
+        @media(max-width:768px){
+
+            header{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav{
+                text-align:center;
+            }
+
+            nav a{
+                display:inline-block;
+                margin:10px;
+            }
+
+            .hero h2{
+                font-size:2.2rem;
+            }
+
+            .hero p{
+                font-size:1rem;
+            }
+
+            .contact{
+                padding:40px 20px;
+            }
+
+        }
+
+    </style>
 </head>
+
 <body>
-$END$
+
+<header>
+
+    <div class="logo">
+
+        <img src="1000201888.png" alt="Logo FRANVAL Construction">
+
+        <div class="logo-text">
+            <h1>FRANVAL</h1>
+            <p>Construction & Remodelación</p>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#reseñas">Reseñas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+</header>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <img
+                src="1000201888.png"
+                alt="Logo FRANVAL"
+                class="hero-logo"
+        >
+
+        <h2>Construimos hogares, creamos confianza</h2>
+
+        <p>
+            Especialistas en construcción y remodelación interior y exterior en Valparaíso.
+            Transformamos espacios con calidad, compromiso y cercanía.
+        </p>
+
+        <a class="btn"
+           href="https://wa.me/56929581098"
+           target="_blank">
+            Contactar por WhatsApp
+        </a>
+
+        <a class="btn"
+           href="mailto:franval.contacto@gmail.com">
+            Enviar Correo
+        </a>
+
+    </div>
+
+</section>
+
+<section id="servicios">
+
+    <div class="title">
+        <h2>Nuestros Servicios</h2>
+        <p>Soluciones completas para hogares y proyectos</p>
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+            <h3>Construcción General</h3>
+            <p>
+                Obras menores y mayores con terminaciones profesionales y materiales de calidad.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Remodelación Interior</h3>
+            <p>
+                Renovación de cocinas, baños, dormitorios y espacios interiores modernos.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Remodelación Exterior</h3>
+            <p>
+                Fachadas, patios, terrazas, cierres perimetrales y mejoras exteriores.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Pintura y Terminaciones</h3>
+            <p>
+                Pintura profesional, detalles decorativos y acabados de alta calidad.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="nosotros">
+
+    <div class="title">
+        <h2>Sobre Nosotros</h2>
+    </div>
+
+    <div class="about">
+
+        <img src="1000201888.png" alt="FRANVAL Construction">
+
+        <div>
+
+            <div class="mission-box">
+
+                <h3>Nuestra Misión</h3>
+
+                <p>
+                    Somos una PYME chilena que sueña con crecer y mejorar los hogares de Chile,
+                    entregando compromiso, calidad y confianza en cada obra realizada.
+                    Nuestro objetivo es transformar espacios y superar las expectativas
+                    de cada cliente.
+                </p>
+
+            </div>
+
+            <div class="mission-box">
+
+                <h3>Nuestra Visión</h3>
+
+                <p>
+                    Convertirnos en una empresa reconocida en construcción y remodelación,
+                    destacando por nuestro profesionalismo, cercanía y excelencia,
+                    llevando soluciones modernas y confiables a cada hogar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="trabajos">
+
+    <div class="title">
+        <h2>Trabajos Realizados</h2>
+        <p>Aquí podrás mostrar tus futuros proyectos y remodelaciones</p>
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200" alt="">
+            <p>Remodelación de living moderno</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200" alt="">
+            <p>Cocina renovada</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200" alt="">
+            <p>Construcción exterior y patio</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="reseñas">
+
+    <div class="title">
+        <h2>Reseñas de Clientes</h2>
+    </div>
+
+    <div class="reviews">
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+                “Muy responsables y profesionales. Dejaron nuestra remodelación increíble.”
+            </p>
+            <strong>- Cliente FRANVAL</strong>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+                “Excelente atención y compromiso durante toda la obra.”
+            </p>
+            <strong>- Cliente FRANVAL</strong>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★☆</div>
+            <p>
+                “Trabajo limpio y bien terminado. Totalmente recomendados.”
+            </p>
+            <strong>- Cliente FRANVAL</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contacto">
+
+    <div class="contact">
+
+        <h2>Contáctanos</h2>
+
+        <p><strong>Empresa:</strong> FRANVAL Construction</p>
+        <p><strong>Ubicación:</strong> Valparaíso, Chile</p>
+
+        <div class="contact-info">
+
+            <h3>Información de Contacto</h3>
+
+            <p>
+                <strong>WhatsApp:</strong><br>
+                <a href="https://wa.me/56929581098" target="_blank">
+                    +56 9 2955 81098
+                </a>
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Correo Electrónico:</strong><br>
+                <a href="mailto:franval.contacto@gmail.com">
+                    franval.contacto@gmail.com
+                </a>
+            </p>
+
+        </div>
+
+        <br><br>
+
+        <a class="btn"
+           href="https://wa.me/56929581098"
+           target="_blank">
+            WhatsApp Directo
+        </a>
+
+        <a class="btn"
+           href="mailto:franval.contacto@gmail.com">
+            Correo Directo
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 FRANVAL Construction | Construimos hogares, creamos confianza.
+</footer>
+
+<div class="floating-buttons">
+
+    <a class="whatsapp"
+       href="https://wa.me/56929581098"
+       target="_blank">
+        W
+    </a>
+
+    <a class="mail"
+       href="mailto:franval.contacto@gmail.com">
+        @
+    </a>
+
+</div>
+
 </body>
 </html>
